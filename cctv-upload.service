@@ -1,0 +1,15 @@
+# /etc/systemd/system/cctv-upload.service
+[Unit]
+Description=CCTV Cloud Upload and Disk Cleanup
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sunrise
+ExecStart=/bin/bash /home/sunrise/Desktop/cam1_uploader.sh
+Restart=always
+RestartSec=300
+
+[Install]
+WantedBy=multi-user.target
